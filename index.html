@@ -548,87 +548,70 @@ footer {
       </div>
     </div>
   </section>
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Get in touch</div>
+      <h2>যোগাযোগ করুন</h2>
+      <p>দাপ্তরিক বা পেশাগত যেকোনো প্রয়োজনে সরাসরি যোগাযোগ করতে পারেন।</p>
+    </div>
 
-  <section id="contact">
-    <div class="container">
-      <div class="sectionhead">
-        <div class="eyebrow">Get in touch</div>
-        <h2>যোগাযোগ করুন</h2>
-        <p>দাপ্তরিক বা পেশাগত যেকোনো প্রয়োজনে সরাসরি যোগাযোগ করতে পারেন।</p>
-      </div>
-      <div class="contactwrap">
-        <div class="contactpanel">
-          <h3>যোগাযোগের তথ্য</h3>
-          <p>সরাসরি কল, ইমেইল অথবা পাশের ফর্মের মাধ্যমে বার্তা পাঠাতে পারেন।</p>
-          <div class="contactitem"><strong>ইমেইল</strong><a href="mailto:mdsazolmian61@gmail.com">mdsazolmian61@gmail.com</a></div>
-          <div class="contactitem"><strong>মোবাইল নম্বর</strong><a href="tel:+8801787759858">০১৭৮৭-৭৫৯৮৫৮</a></div>
-          <div class="contactitem"><strong>কর্মস্থল ও ঠিকানা</strong>বিক্রয় ও বিতরণ বিভাগ-কালুরঘাট, বিদ্যুৎ উন্নয়ন বোর্ড, চট্টগ্রাম।</div>
-          <div class="contactitem">
-            <strong>সোশ্যাল মিডিয়া</strong>
-            <div class="contact-socials">
-              <a class="socialbtn fb" href="https://www.facebook.com/share/1DxHqJpKXa/" target="_blank" rel="noopener noreferrer">Facebook</a>
-              <a class="socialbtn ig" href="https://www.instagram.com/mdsazolmian/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            </div>
+    <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      
+      <!-- বাম পাশ: যোগাযোগের তথ্য -->
+      <div class="contact-info">
+        <h3>যোগাযোগের তথ্য</h3>
+        <p>সরাসরি কল, ইমেইল অথবা পাশের ফর্মের মাধ্যমে বার্তা পাঠাতে পারেন।</p>
+        
+        <div style="margin-bottom: 1rem;">
+          <strong>ইমেইল:</strong><br>
+          <a href="mailto:mdsazolmian61@gmail.com">mdsazolmian61@gmail.com</a>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+          <strong>মোবাইল নম্বর:</strong><br>
+          <a href="tel:+8801787759858">০১৭৮৭-৭৫৯৮৫৮</a>
+        </div>
+        
+        <div style="margin-bottom: 1rem;">
+          <strong>কর্মস্থল ও ঠিকানা:</strong><br>
+          বিক্রয় ও বিতরণ বিভাগ-কালুরঘাট, বিদ্যুৎ উন্নয়ন বোর্ড, চট্টগ্রাম।
+        </div>
+        
+        <div>
+          <strong>সোশ্যাল মিডিয়া:</strong><br>
+          <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+            <a href="https://www.facebook.com/share/1DxHqJpKXa/" rel="noopener noreferrer" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/mdsazolmian/" rel="noopener noreferrer" target="_blank">Instagram</a>
           </div>
         </div>
-        <form class="form" id="contactForm">
-          <h3>বার্তা পাঠান</h3>
-          <label for="name">আপনার নাম</label>
-          <input id="name" required placeholder="আপনার নাম লিখুন">
-          <label for="email">ইমেইল</label>
-          <input id="email" type="email" required placeholder="আপনার ইমেইল লিখুন">
-          <label for="message">বার্তা</label>
-          <textarea id="message" required placeholder="আপনার বার্তা লিখুন"></textarea>
-          <button class="btn primary" type="submit">ইমেইল পাঠান ↗</button>
-          <p id="formNote" style="font-size:12.5px;color:var(--muted);margin-bottom:0;margin-top:10px;">বাটনে ক্লিক করলে আপনার ডিভাইসের ইমেইল অ্যাপটি সরাসরি বার্তাসহ ওপেন হবে।</p>
+      </div>
+
+      <!-- ডান পাশ: আপনার Formspree Endpoint যুক্ত করা ফর্ম -->
+      <div class="contact-form-wrapper">
+        <h3>সরাসরি বার্তা পাঠান</h3>
+        <form action="https://formspree.io/f/mrpqedve" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <label for="name" style="display: block; margin-bottom: 0.3rem;">আপনার নাম</label>
+            <input type="text" id="name" name="name" required placeholder="যেমন: মো: করিম উদ্দিন" style="width: 100%; padding: 0.7rem; border: 1px solid #ccc; border-radius: 6px;">
+          </div>
+
+          <div>
+            <label for="email" style="display: block; margin-bottom: 0.3rem;">আপনার ইমেইল বা মোবাইল</label>
+            <input type="text" id="email" name="contact" required placeholder="example@gmail.com / 017XXXXXXXX" style="width: 100%; padding: 0.7rem; border: 1px solid #ccc; border-radius: 6px;">
+          </div>
+
+          <div>
+            <label for="message" style="display: block; margin-bottom: 0.3rem;">বার্তা</label>
+            <textarea id="message" name="message" rows="4" required placeholder="আপনার বার্তাটি এখানে লিখুন..." style="width: 100%; padding: 0.7rem; border: 1px solid #ccc; border-radius: 6px;"></textarea>
+          </div>
+
+          <button type="submit" style="padding: 0.8rem 1.5rem; background-color: #0f172a; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+            বার্তা পাঠান ↗
+          </button>
         </form>
       </div>
+
     </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container footinner">
-    <span>© <span id="year"></span> মো সজল মিয়ান · সকল অধিকার সংরক্ষিত</span>
-    <span>বিক্রয় ও বিতরণ বিভাগ-কালুরঘাট, বিদ্যুৎ উন্নয়ন বোর্ড, চট্টগ্রাম</span>
   </div>
-</footer>
-
-<script>
-const menuBtn = document.getElementById('menuBtn'), navlinks = document.getElementById('navlinks');
-menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
-navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
-document.getElementById('year').textContent = new Date().getFullYear();
-
-const roles = [
-  "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
-  "বিদ্যুৎ বিতরণ ও বাণিজ্যিক তথ্য ব্যবস্থাপনা",
-  "Excel রিপোর্টিং ও ডেটা অটোমেশন বিশেষজ্ঞ",
-  "ডিজিটাল দাপ্তরিক কর্মপ্রক্রিয়া উন্নয়ন"
-];
-let roleIdx = 0, charIdx = 0, isDeleting = false;
-const typingEl = document.getElementById('typingText');
-
-function typeEffect() {
-  const current = roles[roleIdx];
-  typingEl.textContent = isDeleting ? current.substring(0, charIdx--) : current.substring(0, charIdx++);
-  let speed = isDeleting ? 45 : 85;
-  if (!isDeleting && charIdx > current.length) { speed = 1800; isDeleting = true; }
-  else if (isDeleting && charIdx < 0) { isDeleting = false; roleIdx = (roleIdx + 1) % roles.length; speed = 400; }
-  setTimeout(typeEffect, speed);
-}
-typeEffect();
-
-document.getElementById('contactForm').addEventListener('submit', e => {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  const recipient = 'mdsazolmian61@gmail.com';
-  const subject = encodeURIComponent('Portfolio Contact: ' + name);
-  const body = encodeURIComponent('নাম: ' + name + '\nইমেইল: ' + email + '\n\nবার্তা:\n' + message);
-  window.location.href = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
-});
-</script>
-</body>
-</html>
+</section>
