@@ -11,16 +11,14 @@
 <style>
 :root {
   --bg: #060f1e;
-  --surface: rgba(16, 33, 58, 0.72);
-  --surface-solid: #10213a;
-  --surface2: rgba(25, 49, 84, 0.8);
+  --surface: rgba(16, 33, 58, 0.85);
+  --surface2: rgba(25, 49, 84, 0.9);
   --text: #f0f6fc;
   --muted: #9eb3c9;
   --accent: #38d9c9;
-  --accent-glow: rgba(56, 217, 201, 0.35);
   --gold: #f5c25b;
-  --line: rgba(255, 255, 255, 0.1);
-  --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  --line: rgba(255, 255, 255, 0.12);
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
 }
 
 * { box-sizing: border-box; }
@@ -46,11 +44,9 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(6, 15, 30, 0.82);
+  background: rgba(6, 15, 30, 0.9);
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
-  transition: all 0.3s ease;
 }
 .navinner {
   height: 74px;
@@ -63,9 +59,6 @@ nav {
   font-weight: 700;
   letter-spacing: 0.5px;
   font-size: 21px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 .brand span { color: var(--accent); }
 .navlinks {
@@ -75,24 +68,7 @@ nav {
   font-size: 16px;
   font-weight: 500;
 }
-.navlinks a {
-  position: relative;
-  padding: 4px 0;
-  transition: color 0.25s;
-}
-.navlinks a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
 .navlinks a:hover { color: var(--accent); }
-.navlinks a:hover::after { width: 100%; }
-
 .menu {
   display: none;
   background: var(--surface);
@@ -106,7 +82,7 @@ nav {
 
 /* Hero Section */
 .hero {
-  padding: 90px 0 75px;
+  padding: 85px 0 70px;
   display: grid;
   grid-template-columns: 1.25fr 0.85fr;
   gap: 50px;
@@ -127,16 +103,12 @@ nav {
   border: 1px solid rgba(56, 217, 201, 0.25);
 }
 h1 {
-  font-size: clamp(36px, 4.6vw, 56px);
+  font-size: clamp(34px, 4.5vw, 54px);
   line-height: 1.22;
   margin: 20px 0 16px;
   font-weight: 700;
 }
-h1 .accent {
-  background: linear-gradient(120deg, var(--accent), #6ee7b7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+h1 .accent { color: var(--accent); }
 .typing-wrap {
   font-size: 20px;
   font-weight: 600;
@@ -180,55 +152,28 @@ h1 .accent {
   background: linear-gradient(135deg, var(--accent), #25b3a5);
   color: #041c24;
   border-color: transparent;
-  box-shadow: 0 8px 25px rgba(56, 217, 201, 0.28);
 }
-.btn.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(56, 217, 201, 0.45);
-}
-.btn.secondary {
-  background: var(--surface);
-  backdrop-filter: blur(10px);
-}
-.btn.secondary:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-}
+.btn.primary:hover { transform: translateY(-3px); }
+.btn.secondary { background: var(--surface); }
+.btn.secondary:hover { border-color: var(--accent); transform: translateY(-3px); }
 
 /* Profile Card */
 .profilecard {
   position: relative;
-  background: linear-gradient(160deg, rgba(23, 52, 82, 0.85), rgba(11, 24, 44, 0.95));
-  backdrop-filter: blur(16px);
+  background: linear-gradient(160deg, rgba(23, 52, 82, 0.9), rgba(11, 24, 44, 0.98));
   border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 34px 28px;
   border-radius: 28px;
   box-shadow: var(--shadow);
   text-align: center;
-  overflow: hidden;
-  transition: transform 0.3s ease;
 }
-.profilecard:hover { transform: translateY(-5px); }
-.profilecard::before {
-  content: "";
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 217, 201, 0.2), transparent 70%);
-  top: -60px;
-  right: -60px;
-}
-
 .avatar-wrap {
-  position: relative;
   width: 148px;
   height: 148px;
   border-radius: 50%;
   padding: 4px;
   background: linear-gradient(135deg, var(--accent), var(--gold), #267ca3);
   margin: 0 auto 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 .avatar {
   width: 100%;
@@ -258,7 +203,6 @@ h1 .accent {
   height: 8px;
   background: var(--accent);
   border-radius: 50%;
-  box-shadow: 0 0 8px var(--accent);
 }
 .profilecard h3 { margin: 0; font-size: 25px; font-weight: 700; }
 .profilecard p {
@@ -288,23 +232,9 @@ h1 .accent {
   font-weight: 600;
   transition: all 0.25s ease;
 }
-.socialbtn svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-.socialbtn.fb:hover {
-  border-color: #1877F2;
-  color: #60a5fa;
-  background: rgba(24, 119, 242, 0.15);
-  transform: translateY(-2px);
-}
-.socialbtn.ig:hover {
-  border-color: #E1306C;
-  color: #f472b6;
-  background: rgba(225, 48, 108, 0.15);
-  transform: translateY(-2px);
-}
+.socialbtn svg { width: 16px; height: 16px; fill: currentColor; }
+.socialbtn.fb:hover { border-color: #1877F2; color: #60a5fa; background: rgba(24, 119, 242, 0.15); }
+.socialbtn.ig:hover { border-color: #E1306C; color: #f472b6; background: rgba(225, 48, 108, 0.15); }
 
 .statrow {
   display: grid;
@@ -313,54 +243,36 @@ h1 .accent {
   text-align: left;
 }
 .stat {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 13px 15px;
   border-radius: 14px;
 }
-.stat strong {
-  display: block;
-  color: var(--gold);
-  font-size: 17px;
-}
+.stat strong { display: block; color: var(--gold); font-size: 17px; }
 .stat small { color: var(--muted); font-size: 13px; }
 
 /* Sections */
-section { padding: 75px 0; }
-.sectionhead { margin-bottom: 38px; }
+section { padding: 70px 0; }
+.sectionhead { margin-bottom: 36px; }
 .sectionhead .eyebrow { margin-bottom: 12px; }
-h2 {
-  font-size: clamp(28px, 3.2vw, 40px);
-  line-height: 1.25;
-  margin: 0 0 10px;
-  font-weight: 700;
-}
+h2 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.25; margin: 0 0 10px; }
 .sectionhead p { color: var(--muted); max-width: 680px; margin: 0; font-size: 16.5px; }
 
 /* Grids & Cards */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .card {
   background: var(--surface);
-  backdrop-filter: blur(12px);
   border: 1px solid var(--line);
   border-radius: 22px;
   padding: 26px;
   transition: all 0.3s ease;
 }
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(56, 217, 201, 0.5);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
+.card:hover { transform: translateY(-5px); border-color: rgba(56, 217, 201, 0.5); }
 .icon {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: linear-gradient(135deg, rgba(56, 217, 201, 0.18), rgba(56, 217, 201, 0.05));
+  background: rgba(56, 217, 201, 0.14);
   border: 1px solid rgba(56, 217, 201, 0.25);
   color: var(--accent);
   display: grid;
@@ -368,25 +280,19 @@ h2 {
   font-size: 22px;
   margin-bottom: 18px;
 }
-.card h3 { margin: 0 0 10px; font-size: 20px; font-weight: 600; }
+.card h3 { margin: 0 0 10px; font-size: 20px; }
 .card p { color: var(--muted); margin: 0; font-size: 15.5px; }
 
-/* About Section */
-.aboutgrid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 26px;
-}
+/* About */
+.aboutgrid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 26px; }
 .aboutbox {
   background: var(--surface);
-  backdrop-filter: blur(12px);
   border: 1px solid var(--line);
   padding: 30px;
   border-radius: 22px;
 }
 .aboutbox h3 { margin-top: 0; font-size: 21px; color: var(--accent); }
 .aboutbox p { color: var(--muted); margin-top: 0; font-size: 16px; }
-.aboutbox p:last-child { margin-bottom: 0; }
 .tags { display: flex; flex-wrap: wrap; gap: 10px; }
 .tag {
   padding: 8px 15px;
@@ -395,12 +301,6 @@ h2 {
   border-radius: 999px;
   color: #d6e4f2;
   font-size: 14px;
-  transition: all 0.2s;
-}
-.tag:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  transform: translateY(-2px);
 }
 
 /* Timeline */
@@ -414,13 +314,10 @@ h2 {
 .timelineitem {
   position: relative;
   background: var(--surface);
-  backdrop-filter: blur(12px);
   border: 1px solid var(--line);
   padding: 25px;
   border-radius: 20px;
-  transition: border-color 0.3s;
 }
-.timelineitem:hover { border-color: rgba(56, 217, 201, 0.45); }
 .timelineitem::before {
   content: "";
   position: absolute;
@@ -430,7 +327,308 @@ h2 {
   height: 16px;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(56, 217, 201, 0.15);
 }
 .timelineitem .date { color: var(--gold); font-size: 14px; font-weight: 700; }
-.timelineitem h3 { margin: 6px 0
+.timelineitem h3 { margin: 6px 0 10px; font-size: 19.5px; }
+.timelineitem p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+/* Projects */
+.project { display: flex; flex-direction: column; min-height: 230px; }
+.project .projecttype { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+.project h3 { margin: 10px 0; }
+.project p { flex: 1; }
+.project .more { margin-top: 18px; color: var(--gold); font-weight: 600; font-size: 14px; }
+
+/* Contact */
+.contactwrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 24px; }
+.contactpanel {
+  background: linear-gradient(145deg, rgba(20, 48, 78, 0.95), rgba(14, 30, 54, 0.98));
+  border: 1px solid var(--line);
+  padding: 30px;
+  border-radius: 24px;
+}
+.contactpanel h3, .form h3 { margin-top: 0; font-size: 22px; }
+.contactpanel p { color: var(--muted); }
+.contactitem { padding: 15px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
+.contactitem:last-child { border-bottom: none; }
+.contactitem strong { color: var(--text); display: block; margin-bottom: 3px; }
+.contactitem a { color: var(--accent); }
+.contact-socials { display: flex; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+
+.form {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 30px;
+  border-radius: 24px;
+}
+.form label { display: block; font-size: 14.5px; color: var(--muted); margin: 14px 0 6px; }
+.form input, .form textarea {
+  width: 100%;
+  background: rgba(6, 15, 30, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px 15px;
+  color: var(--text);
+  font: inherit;
+}
+.form textarea { min-height: 115px; resize: vertical; }
+.form button { margin-top: 18px; width: 100%; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: 14px;
+  background: rgba(4, 10, 20, 0.8);
+}
+.footinner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+
+@media (max-width: 880px) {
+  .hero { grid-template-columns: 1fr; padding-top: 50px; }
+  .profilecard { max-width: 480px; margin: auto; }
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .aboutgrid, .contactwrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    padding: 20px 5%;
+    background: #081529;
+    flex-direction: column;
+    gap: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .navlinks.open { display: flex; }
+  .menu { display: block; }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container navinner">
+    <a class="brand" href="#home">SAZOL<span>MIAN</span></a>
+    <button class="menu" id="menuBtn" aria-label="মেনু খুলুন">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">পরিচিতি</a>
+      <a href="#skills">দক্ষতা</a>
+      <a href="#experience">অভিজ্ঞতা</a>
+      <a href="#projects">প্রকল্প</a>
+      <a href="#contact">যোগাযোগ</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container hero" id="home">
+    <div>
+      <div class="eyebrow">Professional Portfolio</div>
+      <h1>আমি <span class="accent">মো সজল মিয়ান</span><br>কাজ করি দক্ষতা ও নিষ্ঠায়</h1>
+      <div class="typing-wrap"><span id="typingText"></span><span class="cursor">&nbsp;</span></div>
+      <p class="lead">বিদ্যুৎ বিতরণ, বাণিজ্যিক কার্যক্রম, দাপ্তরিক ব্যবস্থাপনা ও প্রযুক্তিনির্ভর কাজের প্রতি নিবেদিত একজন পেশাজীবী। পরিকল্পনা, ডেটা অটোমেশন এবং দাপ্তরিক কাজের মান উন্নয়নে প্রতিশ্রুতিবদ্ধ।</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">আমার কাজ দেখুন ↗</a>
+        <a class="btn secondary" href="#contact">যোগাযোগ করুন</a>
+      </div>
+    </div>
+
+    <aside class="profilecard">
+      <div class="avatar-wrap">
+        <img class="avatar" src="profile.jpg" alt="মো সজল মিয়ান" onerror="this.src='https://ui-avatars.com/api/?name=Sazol+Mian&background=142944&color=38d9c9&size=256'">
+      </div>
+      <div class="status-badge"><span class="status-dot"></span> কর্মরত · BPDB</div>
+      <h3>মো সজল মিয়ান</h3>
+      <p>অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক<br>বিক্রয় ও বিতরণ বিভাগ-কালুরঘাট, বিদ্যুৎ উন্নয়ন বোর্ড, চট্টগ্রাম</p>
+      
+      <div class="sociallinks">
+        <a class="socialbtn fb" href="https://www.facebook.com/share/1DxHqJpKXa/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          Facebook
+        </a>
+        <a class="socialbtn ig" href="https://www.instagram.com/mdsazolmian/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          Instagram
+        </a>
+      </div>
+
+      <div class="statrow">
+        <div class="stat"><strong>BPDB</strong><small>বিদ্যুৎ উন্নয়ন বোর্ড</small></div>
+        <div class="stat"><strong>Automation</strong><small>তথ্য ও অফিস ব্যবস্থাপনা</small></div>
+      </div>
+    </aside>
+  </div>
+
+  <section id="about">
+    <div class="container">
+      <div class="sectionhead">
+        <div class="eyebrow">About</div>
+        <h2>আমার সম্পর্কে</h2>
+        <p>পেশাগত পরিচয়, কাজের দর্শন ও দাপ্তরিক অভিজ্ঞতার সংক্ষিপ্ত বিবরণ।</p>
+      </div>
+      <div class="aboutgrid">
+        <div class="aboutbox">
+          <h3>পেশাগত পরিচিতি</h3>
+          <p>আমি <strong>মো সজল মিয়ান</strong>, বর্তমানে বাংলাদেশ বিদ্যুৎ উন্নয়ন বোর্ডের (BPDB) অধীনে <strong>বিক্রয় ও বিতরণ বিভাগ-কালুরঘাট, চট্টগ্রাম</strong> দপ্তরে <strong>অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক</strong> হিসেবে কর্মরত আছি।</p>
+          <p>দাপ্তরিক নথিপত্র ও চিঠিপত্র প্রস্তুত, কম্পিউটার মুদ্রাক্ষর, বাণিজ্যিক বিলিং ও গ্রাহক তথ্য বিশ্লেষণ এবং ডিজিটাল প্রক্রিয়া উন্নয়নের মাধ্যমে নির্ভুল ও গতিশীল দাপ্তরিক সেবা নিশ্চিত করাই আমার মূল লক্ষ্য।</p>
+        </div>
+        <div class="aboutbox">
+          <h3>মূল দক্ষতার ক্ষেত্র</h3>
+          <div class="tags">
+            <span class="tag">বিদ্যুৎ বিতরণ কার্যক্রম</span>
+            <span class="tag">বাণিজ্যিক ও বিলিং তথ্য</span>
+            <span class="tag">দাপ্তরিক চিঠিপত্র ও নথি</span>
+            <span class="tag">Excel ও ডেটা অটোমেশন</span>
+            <span class="tag">ডিজিটাল ওয়ার্কফ্লো</span>
+            <span class="tag">গ্রাহকসেবা ও সমন্বয়</span>
+            <span class="tag">রিপোর্টিং ও বিশ্লেষণ</span>
+            <span class="tag">প্রশাসনিক ব্যবস্থাপনা</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="sectionhead">
+        <div class="eyebrow">Capabilities</div>
+        <h2>দক্ষতা ও সক্ষমতা</h2>
+        <p>দাপ্তরিক, বাণিজ্যিক এবং প্রযুক্তিনির্ভর কার্যক্রমে অর্জিত মূল পেশাগত দক্ষতাসমূহ।</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="icon">⚡</div><h3>বিদ্যুৎ বিতরণ ও বাণিজ্যিক সেবা</h3><p>বিতরণ বিভাগের বাণিজ্যিক কার্যক্রম, গ্রাহক হিসাব, মিটার সংক্রান্ত তথ্য ও সেবাপ্রদান প্রক্রিয়া সমন্বয়।</p></article>
+        <article class="card"><div class="icon">▤</div><h3>দাপ্তরিক নথি ও মুদ্রাক্ষর</h3><p>অফিস আদেশ, স্মারক, প্রতিবেদন, দাপ্তরিক চিঠিপত্র ও প্রাতিষ্ঠানিক যোগাযোগের নির্ভুল খসড়া ও মুদ্রাক্ষর।</p></article>
+        <article class="card"><div class="icon">▦</div><h3>Excel ও ডেটা রিপোর্টিং</h3><p>বৃহৎ ডেটাসেট সংগঠন, হিসাব-নিকাশ, ডায়নামিক রিপোর্ট তৈরি এবং পুনরাবৃত্ত কাজের সময় সাশ্রয়।</p></article>
+        <article class="card"><div class="icon">⌘</div><h3>ডিজিটাল ওয়ার্কফ্লো ও অটোমেশন</h3><p>আধুনিক সফটওয়্যার, স্প্রেডশিট অটোমেশন ও ডিজিটাল টুল ব্যবহারের মাধ্যমে দাপ্তরিক গতিশীলতা বৃদ্ধি।</p></article>
+        <article class="card"><div class="icon">◎</div><h3>সমন্বয় ও যোগাযোগ</h3><p>দাপ্তরিক কাজের অগ্রগতি পর্যবেক্ষণ, তথ্য আদান-প্রদান এবং সংশ্লিষ্ট শাখাসমূহের সাথে কার্যকর সমন্বয়।</p></article>
+        <article class="card"><div class="icon">↗</div><h3>তথ্য যাচাই ও সমস্যা সমাধান</h3><p>নথি ও ডেটার ত্রুটি শনাক্তকরণ, তথ্য হালনাগাদ এবং প্রাতিষ্ঠানিক প্রক্রিয়া সহজীকরণ।</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="sectionhead">
+        <div class="eyebrow">Career</div>
+        <h2>পেশাগত অভিজ্ঞতা</h2>
+        <p>কর্মজীবনের পদবি, কর্মস্থল ও গুরুত্বপূর্ণ দায়িত্বসমূহ।</p>
+      </div>
+      <div class="timeline">
+        <div class="timelineitem">
+          <div class="date">বর্তমান · চলমান</div>
+          <h3>অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক — বিক্রয় ও বিতরণ বিভাগ-কালুরঘাট, বিদ্যুৎ উন্নয়ন বোর্ড, চট্টগ্রাম</h3>
+          <p>দাপ্তরিক চিঠিপত্র ও নথি প্রস্তুত, কম্পিউটার মুদ্রাক্ষর, গ্রাহক ও বাণিজ্যিক বিলিং সংক্রান্ত তথ্য ব্যবস্থাপনা, মাসিক প্রতিবেদন তৈরি এবং ডিজিটাল দাপ্তরিক কার্যক্রমে দায়িত্ব পালন।</p>
+        </div>
+        <div class="timelineitem">
+          <div class="date">কারিগরি ও প্রশাসনিক দক্ষতা</div>
+          <h3>তথ্য ব্যবস্থাপনা ও কম্পিউটার অপারেশন — দাপ্তরিক ও বাণিজ্যিক কার্যক্রম</h3>
+          <p>Microsoft Office (Word, Excel), ডেটা এন্ট্রি, নথিপত্র ডিজিটাল সংরক্ষণ এবং স্বয়ংক্রিয় রিপোর্টিং ফরম্যাট পরিচালনায় বাস্তব অভিজ্ঞতা।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="sectionhead">
+        <div class="eyebrow">Selected Work</div>
+        <h2>কাজের ক্ষেত্র ও উদ্যোগ</h2>
+        <p>দাপ্তরিক দক্ষতা বৃদ্ধি ও তথ্য ব্যবস্থাপনায় গৃহীত উল্লেখযোগ্য কার্যক্রম।</p>
+      </div>
+      <div class="grid">
+        <article class="card project"><span class="projecttype">REPORTING · AUTOMATION</span><h3>রিপোর্টিং ও Excel অটোমেশন</h3><p>প্রাতিষ্ঠানিক মাসিক ও দৈনিক রিপোর্টের কাঠামো তৈরি, তথ্য সংগঠন এবং পুনরাবৃত্ত দাপ্তরিক হিসাব সহজীকরণ।</p><span class="more">✓ দাপ্তরিক কার্যক্রমে প্রয়োগকৃত</span></article>
+        <article class="card project"><span class="projecttype">COMMERCIAL OPERATIONS</span><h3>বাণিজ্যিক ও গ্রাহক তথ্য ব্যবস্থাপনা</h3><p>গ্রাহক হিসাব, ট্যারিফ ও বিলিং সংক্রান্ত নথিপত্র সুশৃঙ্খলভাবে সংরক্ষণ এবং দ্রুত তথ্য সরবরাহ নিশ্চিতকরণ।</p><span class="more">✓ নির্ভুল নথি ব্যবস্থাপনা</span></article>
+        <article class="card project"><span class="projecttype">DIGITAL WORKFLOW</span><h3>ডিজিটাল নথি ও তথ্য হালনাগাদ</h3><p>কাগজপত্রের পাশাপাশি ডিজিটাল ফরম্যাটে তথ্য ট্র্যাকিং ও দ্রুত অনুসন্ধানযোগ্য ডাটাবেজ সংরক্ষণ।</p><span class="more">✓ আধুনিক অফিস ব্যবস্থাপনা</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="sectionhead">
+        <div class="eyebrow">Get in touch</div>
+        <h2>যোগাযোগ করুন</h2>
+        <p>দাপ্তরিক বা পেশাগত যেকোনো প্রয়োজনে সরাসরি যোগাযোগ করতে পারেন।</p>
+      </div>
+      <div class="contactwrap">
+        <div class="contactpanel">
+          <h3>যোগাযোগের তথ্য</h3>
+          <p>সরাসরি কল, ইমেইল অথবা পাশের ফর্মের মাধ্যমে বার্তা পাঠাতে পারেন।</p>
+          <div class="contactitem"><strong>ইমেইল</strong><a href="mailto:mdsazolmian61@gmail.com">mdsazolmian61@gmail.com</a></div>
+          <div class="contactitem"><strong>মোবাইল নম্বর</strong><a href="tel:+8801787759858">০১৭৮৭-৭৫৯৮৫৮</a></div>
+          <div class="contactitem"><strong>কর্মস্থল ও ঠিকানা</strong>বিক্রয় ও বিতরণ বিভাগ-কালুরঘাট, বিদ্যুৎ উন্নয়ন বোর্ড, চট্টগ্রাম।</div>
+          <div class="contactitem">
+            <strong>সোশ্যাল মিডিয়া</strong>
+            <div class="contact-socials">
+              <a class="socialbtn fb" href="https://www.facebook.com/share/1DxHqJpKXa/" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a class="socialbtn ig" href="https://www.instagram.com/mdsazolmian/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+          </div>
+        </div>
+        <form class="form" id="contactForm">
+          <h3>বার্তা পাঠান</h3>
+          <label for="name">আপনার নাম</label>
+          <input id="name" required placeholder="আপনার নাম লিখুন">
+          <label for="email">ইমেইল</label>
+          <input id="email" type="email" required placeholder="আপনার ইমেইল লিখুন">
+          <label for="message">বার্তা</label>
+          <textarea id="message" required placeholder="আপনার বার্তা লিখুন"></textarea>
+          <button class="btn primary" type="submit">ইমেইল পাঠান ↗</button>
+          <p id="formNote" style="font-size:12.5px;color:var(--muted);margin-bottom:0;margin-top:10px;">বাটনে ক্লিক করলে আপনার ডিভাইসের ইমেইল অ্যাপটি সরাসরি বার্তাসহ ওপেন হবে।</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footinner">
+    <span>© <span id="year"></span> মো সজল মিয়ান · সকল অধিকার সংরক্ষিত</span>
+    <span>বিক্রয় ও বিতরণ বিভাগ-কালুরঘাট, বিদ্যুৎ উন্নয়ন বোর্ড, চট্টগ্রাম</span>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuBtn'), navlinks = document.getElementById('navlinks');
+menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
+navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const roles = [
+  "অফিস সহকারী কাম কম্পিউটার মুদ্রাক্ষরিক",
+  "বিদ্যুৎ বিতরণ ও বাণিজ্যিক তথ্য ব্যবস্থাপনা",
+  "Excel রিপোর্টিং ও ডেটা অটোমেশন বিশেষজ্ঞ",
+  "ডিজিটাল দাপ্তরিক কর্মপ্রক্রিয়া উন্নয়ন"
+];
+let roleIdx = 0, charIdx = 0, isDeleting = false;
+const typingEl = document.getElementById('typingText');
+
+function typeEffect() {
+  const current = roles[roleIdx];
+  typingEl.textContent = isDeleting ? current.substring(0, charIdx--) : current.substring(0, charIdx++);
+  let speed = isDeleting ? 45 : 85;
+  if (!isDeleting && charIdx > current.length) { speed = 1800; isDeleting = true; }
+  else if (isDeleting && charIdx < 0) { isDeleting = false; roleIdx = (roleIdx + 1) % roles.length; speed = 400; }
+  setTimeout(typeEffect, speed);
+}
+typeEffect();
+
+document.getElementById('contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const recipient = 'mdsazolmian61@gmail.com';
+  const subject = encodeURIComponent('Portfolio Contact: ' + name);
+  const body = encodeURIComponent('নাম: ' + name + '\nইমেইল: ' + email + '\n\nবার্তা:\n' + message);
+  window.location.href = 'mailto:' + recipient + '?subject=' + subject + '&body=' + body;
+});
+</script>
+</body>
+</html>
